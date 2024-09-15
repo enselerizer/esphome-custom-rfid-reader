@@ -57,20 +57,24 @@ namespace esphome
                 {
                     std::string s = std::string(buffer);
                     if (s == "NONE")
-                        current_state_ = ReaderState::NoTag;
+                        this->current_state_ = ReaderState::NoTag;
                     else if (s == "INVALID")
-                        current_state_ = ReaderState::InvalidTag;
+                        this->current_state_ = ReaderState::InvalidTag;
                     else
-                        current_state_ = ReaderState::ValidTag;
+                        this->current_state_ = ReaderState::ValidTag;
 
-                    if (current_state_ == ReaderState::ValidTag && last_state_ != ReaderState::ValidTag)
+                    if (this->current_state_ == ReaderState::ValidTag && this->last_state_ != ReaderState::ValidTag)
                     {
+                        ESP_LOGI(TAG, "A valid tag detected!");
                         publish_state(s.substr(6));
                     }
-                    else if (current_state_ != ReaderState::ValidTag && last_state_ == ReaderState::ValidTag)
+                    else if (this->current_state_ != ReaderState::NoTag && this->last_state_ == ReaderState::NoTag)
                     {
+                        ESP_LOGI(TAG, "A valid tag not present anymore");
                         publish_state("");
                     }
+
+                    this->last_state_ = this->current_state_;
                 }
             }
         }
