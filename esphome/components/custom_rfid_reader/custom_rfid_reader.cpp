@@ -58,10 +58,10 @@ namespace esphome
                     std::string s = std::string(buffer);
                     if (s == "NONE")
                         this->current_state_ = ReaderState::NoTag;
-                    else if (s == "INVALID")
-                        this->current_state_ = ReaderState::InvalidTag;
-                    else
+                    else if (s.substr(0, 5) == "VALID")
                         this->current_state_ = ReaderState::ValidTag;
+                    else
+                        this->current_state_ = ReaderState::InvalidTag;
 
                     if (this->current_state_ == ReaderState::ValidTag && this->last_state_ != ReaderState::ValidTag)
                     {
@@ -81,8 +81,8 @@ namespace esphome
 
         void CustomRFIDReader::dump_config()
         {
-            ESP_LOGCONFIG(TAG, "Custom RFID Reader");
+            ESP_LOGCONFIG(TAG, "Custom arduino-based RFID reader device component v1.0.0");
         }
 
-    } // namespace empty_UART_sensor
+    } // namespace custom_rfid_sensor
 } // namespace esphome
