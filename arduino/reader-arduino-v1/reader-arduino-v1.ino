@@ -7,7 +7,7 @@ PN532 nfc(pn532i2c);
 
 void setup(void) {
   Serial.begin(2400);
-  Serial.println("Hello!");
+  Serial.println("INIT Custom RFID Reader 1.0.0");
 
   nfc.begin();
   nfc.SAMConfig();
