@@ -63,7 +63,7 @@ namespace esphome
                     else if (s.substr(0, 4) == "INIT")
                     {
                         this->current_state_ = ReaderState::NoTag;
-                        ESP_LOGI(TAG, "Reader detected: %s", s.substr(5));
+                        ESP_LOGI(TAG, "Reader detected:" + s.substr(5));
                     }
                     else 
                         this->current_state_ = ReaderState::InvalidTag;
