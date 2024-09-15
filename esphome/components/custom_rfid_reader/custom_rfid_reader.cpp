@@ -56,7 +56,7 @@ namespace esphome
                 if (readline(read(), buffer, max_line_length) > 0)
                 {
                     std::string s = std::string(buffer);
-                    s.remove(0,6);
+                    s.substr(0,6);
                     publish_state(s);
                 }
             }
