@@ -56,8 +56,21 @@ namespace esphome
                 if (readline(read(), buffer, max_line_length) > 0)
                 {
                     std::string s = std::string(buffer);
-                    s.substr(0,6);
-                    publish_state(s);
+                    if (s == "NONE")
+                        current_state_ = ReaderState::NoTag;
+                    else if (s == "INVALID")
+                        current_state_ = ReaderState::InvalidTag;
+                    else
+                        current_state_ = ReaderState::ValidTag;
+
+                    if (current_state_ == ReaderState::ValidTag && last_state_ != ReaderState::ValidTag)
+                    {
+                        publish_state(s.substr(6));
+                    }
+                    else if (current_state_ == ReaderState::ValidTag && last_state_ != ReaderState::ValidTag)
+                    {
+                        publish_state("");
+                    }
                 }
             }
         }
