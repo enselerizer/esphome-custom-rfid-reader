@@ -12,8 +12,6 @@ namespace esphome
     class CustomRFIDReader : public text_sensor::TextSensor, public Component, public uart::UARTDevice
     {
     public:
-      CustomRFIDReader(UARTComponent *parent) : UARTDevice(parent);
-
       void setup() override;
       void loop() override;
       void dump_config() override;

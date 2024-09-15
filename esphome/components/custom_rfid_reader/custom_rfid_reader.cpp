@@ -9,10 +9,6 @@ namespace esphome
 
         static const char *TAG = "custom_rfid_reader.text_sensor";
 
-        CustomRFIDReader::CustomRFIDReader(UARTComponent *parent)
-        {
-        }
-
         void CustomRFIDReader::setup()
         {
         }
