@@ -1,13 +1,13 @@
 #pragma once
 
 #include "esphome/core/component.h"
-#include "esphome/components/sensor/sensor.h"
+#include "esphome/components/text_sensor/text_sensor.h"
 #include "esphome/components/uart/uart.h"
 
 namespace esphome {
-namespace empty_uart_sensor {
+namespace custom_rfid_reader {
 
-class EmptyUARTSensor : public sensor::Sensor, public PollingComponent, public uart::UARTDevice {
+class CustomRFIDReader : public text_sensor::TextSensor, public Component, public uart::UARTDevice {
  public:
   void setup() override;
   void update() override;

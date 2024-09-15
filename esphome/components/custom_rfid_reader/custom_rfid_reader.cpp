@@ -1,24 +1,24 @@
 #include "esphome/core/log.h"
-#include "empty_uart_sensor.h"
+#include "custom_rfid_reader.h"
 
 namespace esphome {
-namespace empty_uart_sensor {
+namespace custom_rfid_reader {
 
-static const char *TAG = "empty_uart_sensor.sensor";
+static const char *TAG = "custom_rfid_reader.sensor";
 
-void EmptyUARTSensor::setup() {
-
-}
-
-void EmptyUARTSensor::update() {
+void CustomRFIDReader::setup() {
 
 }
 
-void EmptyUARTSensor::loop() {
+void CustomRFIDReader::update() {
 
 }
 
-void EmptyUARTSensor::dump_config(){
+void CustomRFIDReader::loop() {
+
+}
+
+void CustomRFIDReader::dump_config(){
     ESP_LOGCONFIG(TAG, "Empty UART sensor");
 }
 
