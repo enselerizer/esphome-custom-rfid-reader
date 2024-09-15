@@ -7,7 +7,7 @@ DEPENDENCIES = ["uart"]
 
 custom_rfid_reader_ns = cg.esphome_ns.namespace("custom_rfid_reader")
 CustomRFIDReader = custom_rfid_reader_ns.class_(
-    "CustomRFIDReader", cg.Component, uart.UARTDevice
+    "CustomRFIDReader", text_sensor.TextSensor, cg.Component, uart.UARTDevice
 )
 
 CONFIG_SCHEMA = (
