@@ -10,7 +10,6 @@ namespace custom_rfid_reader {
 class CustomRFIDReader : public text_sensor::TextSensor, public Component, public uart::UARTDevice {
  public:
   void setup() override;
-  void update() override;
   void loop() override;
   void dump_config() override;
 };

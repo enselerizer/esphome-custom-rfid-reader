@@ -11,12 +11,8 @@ void CustomRFIDReader::setup() {
 
 }
 
-void CustomRFIDReader::update() {
-    ESP_LOGI(TAG, " hey there")
-}
-
 void CustomRFIDReader::loop() {
-
+    ESP_LOGI(TAG, "hey there");
 }
 
 void CustomRFIDReader::dump_config(){
