@@ -64,7 +64,7 @@ namespace esphome
                         this->current_state_ = ReaderState::NoTag;
                         std::string s2 = "Reader detected:";
                         std::strcat(s2, s.substr(5));
-                        ESP_LOGI(TAG, s2);
+                        ESP_LOGI(TAG, s2.c_str());
                     }
                     else
                         this->current_state_ = ReaderState::InvalidTag;
