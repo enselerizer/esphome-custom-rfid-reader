@@ -1,5 +1,6 @@
 #include "esphome/core/log.h"
 #include "custom_rfid_reader.h"
+#include "esphome/core/log.h"
 
 namespace esphome {
 namespace custom_rfid_reader {
@@ -11,7 +12,7 @@ void CustomRFIDReader::setup() {
 }
 
 void CustomRFIDReader::update() {
-
+    ESP_LOGI(TAG, " hey there")
 }
 
 void CustomRFIDReader::loop() {
