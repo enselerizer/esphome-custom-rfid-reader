@@ -1,7 +1,6 @@
 #include "esphome/core/log.h"
 #include "custom_rfid_reader.h"
 
-
 namespace esphome
 {
     namespace custom_rfid_reader
@@ -63,9 +62,11 @@ namespace esphome
                     else if (s.substr(0, 4) == "INIT")
                     {
                         this->current_state_ = ReaderState::NoTag;
-                        ESP_LOGI(TAG, "Reader detected:" + s.substr(5));
+                        std::string s2 = "Reader detected:";
+                        std::strcat(s2, s.substr(5));
+                        ESP_LOGI(TAG, s2);
                     }
-                    else 
+                    else
                         this->current_state_ = ReaderState::InvalidTag;
 
                     if (this->current_state_ == ReaderState::ValidTag && this->last_state_ != ReaderState::ValidTag)
