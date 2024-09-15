@@ -11,12 +11,7 @@ CustomRFIDReader = custom_rfid_reader_ns.class_(
 )
 
 CONFIG_SCHEMA = (
-    text_sensor.text_sensor_schema(
-        CustomRFIDReader,
-        unit_of_measurement=UNIT_EMPTY,
-        icon=ICON_EMPTY,
-        accuracy_decimals=1,
-    )
+    text_sensor.text_sensor_schema(CustomRFIDReader)
     .extend(uart.UART_DEVICE_SCHEMA)
 )
 
