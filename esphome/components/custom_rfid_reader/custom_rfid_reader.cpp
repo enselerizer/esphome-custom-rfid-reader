@@ -55,7 +55,9 @@ namespace esphome
             {
                 if (readline(read(), buffer, max_line_length) > 0)
                 {
-                    publish_state(buffer);
+                    string s = String(buffer);
+                    s.remove(0,6);
+                    publish_state(s);
                 }
             }
         }
