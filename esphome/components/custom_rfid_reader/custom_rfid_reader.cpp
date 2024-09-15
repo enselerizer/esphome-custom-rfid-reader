@@ -67,7 +67,7 @@ namespace esphome
                     {
                         publish_state(s.substr(6));
                     }
-                    else if (current_state_ == ReaderState::ValidTag && last_state_ != ReaderState::ValidTag)
+                    else if (current_state_ != ReaderState::ValidTag && last_state_ == ReaderState::ValidTag)
                     {
                         publish_state("");
                     }
