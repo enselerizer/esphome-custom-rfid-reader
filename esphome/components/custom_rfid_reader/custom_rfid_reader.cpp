@@ -68,10 +68,10 @@ namespace esphome
                         ESP_LOGI(TAG, "A valid tag detected!");
                         publish_state(s.substr(6));
                     }
-                    else if (this->current_state_ != ReaderState::NoTag && this->last_state_ == ReaderState::NoTag)
+                    else if (this->current_state_ == ReaderState::NoTag && this->last_state_ != ReaderState::NoTag)
                     {
                         ESP_LOGI(TAG, "A valid tag not present anymore");
-                        publish_state("none");
+                        publish_state("");
                     }
 
                     this->last_state_ = this->current_state_;
