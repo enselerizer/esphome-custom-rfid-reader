@@ -4,6 +4,10 @@
         "charconv": "cpp",
         "functional": "cpp",
         "xstring": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "filesystem": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "xmemory": "cpp"
     }
 }
