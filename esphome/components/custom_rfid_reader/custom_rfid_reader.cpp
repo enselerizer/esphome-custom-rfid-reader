@@ -71,7 +71,7 @@ namespace esphome
                     else if (this->current_state_ != ReaderState::NoTag && this->last_state_ == ReaderState::NoTag)
                     {
                         ESP_LOGI(TAG, "A valid tag not present anymore");
-                        publish_state("");
+                        publish_state("none");
                     }
 
                     this->last_state_ = this->current_state_;
