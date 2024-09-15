@@ -56,16 +56,16 @@ namespace esphome
                 if (readline(read(), buffer, max_line_length) > 0)
                 {
                     std::string s = std::string(buffer);
-                    if (s.substr(0, 4) == "INIT")
+                    if (s == "NONE")
+                        this->current_state_ = ReaderState::NoTag;
+                    else if (s.substr(0, 5) == "VALID")
+                        this->current_state_ = ReaderState::ValidTag;
+                    else if (s.substr(0, 4) == "INIT")
                     {
                         this->current_state_ = ReaderState::NoTag;
                         ESP_LOGI(TAG, "Reader detected: %s", s.substr(5));
                     }
-                    else if (s == "NONE")
-                        this->current_state_ = ReaderState::NoTag;
-                    else if (s.substr(0, 5) == "VALID")
-                        this->current_state_ = ReaderState::ValidTag;
-                    else
+                    else 
                         this->current_state_ = ReaderState::InvalidTag;
 
                     if (this->current_state_ == ReaderState::ValidTag && this->last_state_ != ReaderState::ValidTag)
